@@ -15,7 +15,6 @@
 import inspect
 import os
 import pkg_resources
-import site
 import sys
 
 
@@ -397,7 +396,7 @@ def _is_git_root(path):
 
 
 def _is_parent_site_packages(path):
-    return os.path.dirname(path) in site.getsitepackages()
+    return os.path.basename(os.path.dirname(path)) == 'site-packages'
 
 
 _source_root = None
